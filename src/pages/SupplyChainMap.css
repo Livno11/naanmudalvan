@@ -1,0 +1,337 @@
+.supply-chain-map-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.map-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--neutral-200);
+  background-color: white;
+  z-index: 5;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.filter-btn, .node-type-btn, .zoom-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius);
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: var(--neutral-100);
+  color: var(--neutral-700);
+  border: 1px solid var(--neutral-200);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover, .node-type-btn:hover, .zoom-btn:hover {
+  background-color: var(--neutral-200);
+}
+
+.filter-btn.active, .node-type-btn.active {
+  background-color: var(--primary-50);
+  color: var(--primary-700);
+  border-color: var(--primary-200);
+}
+
+.node-type-filters {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.zoom-controls {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.map-visualization {
+  position: relative;
+  flex: 1;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  background-color: var(--neutral-50);
+  overflow: hidden;
+}
+
+.connections-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.connection {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.connection-normal {
+  stroke: var(--neutral-400);
+}
+
+.connection-warning {
+  stroke: var(--warning-500);
+  stroke-dasharray: 4, 2;
+}
+
+.connection-critical {
+  stroke: var(--error-500);
+  stroke-dasharray: 4, 2;
+}
+
+.connection-success {
+  stroke: var(--success-500);
+}
+
+.nodes-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.node-wrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.node-details {
+  margin-top: var(--space-4);
+}
+
+.node-details-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.node-details-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-normal {
+  background-color: var(--neutral-100);
+  color: var(--neutral-700);
+}
+
+.status-warning {
+  background-color: var(--warning-50);
+  color: var(--warning-700);
+}
+
+.status-critical {
+  background-color: var(--error-50);
+  color: var(--error-700);
+}
+
+.status-success {
+  background-color: var(--success-50);
+  color: var(--success-700);
+}
+
+.node-details-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.details-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.details-section-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+.metrics-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-2);
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2);
+  background-color: var(--neutral-50);
+  border-radius: var(--radius);
+}
+
+.metric-item-label {
+  font-size: 0.75rem;
+  color: var(--neutral-500);
+  margin-bottom: var(--space-1);
+}
+
+.metric-item-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+.connected-nodes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.connected-node-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background-color: var(--neutral-50);
+  border-radius: var(--radius);
+}
+
+.connection-direction {
+  font-size: 0.75rem;
+  color: var(--neutral-500);
+  width: 40px;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+}
+
+.connected-node-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--neutral-800);
+}
+
+.recent-activity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--neutral-700);
+}
+
+.activity-time {
+  font-size: 0.75rem;
+  color: var(--neutral-500);
+}
+
+.node-details-actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.btn-primary, .btn-outline {
+  padding: var(--space-2) var(--space-4);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-600);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-700);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--neutral-600);
+  border: 1px solid var(--neutral-300);
+}
+
+.btn-outline:hover {
+  background-color: var(--neutral-100);
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 500px;
+  }
+  
+  .map-toolbar {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .filter-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  
+  .node-type-filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+  
+  .zoom-controls {
+    align-self: flex-end;
+  }
+}

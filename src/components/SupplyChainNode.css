@@ -1,0 +1,114 @@
+.supply-chain-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--space-4);
+  background-color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  overflow: hidden;
+  max-width: 300px;
+}
+
+.supply-chain-node:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.supply-chain-node.selected {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.3), var(--shadow-md);
+}
+
+.node-status-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+
+.node-status-normal .node-status-indicator {
+  background-color: var(--neutral-500);
+}
+
+.node-status-warning .node-status-indicator {
+  background-color: var(--warning-500);
+}
+
+.node-status-critical .node-status-indicator {
+  background-color: var(--error-500);
+}
+
+.node-status-success .node-status-indicator {
+  background-color: var(--success-500);
+}
+
+.node-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  margin-right: var(--space-3);
+}
+
+.node-type-supplier .node-icon {
+  background-color: var(--primary-50);
+  color: var(--primary-600);
+}
+
+.node-type-warehouse .node-icon {
+  background-color: var(--secondary-50);
+  color: var(--secondary-600);
+}
+
+.node-type-distribution .node-icon {
+  background-color: var(--accent-50);
+  color: var(--accent-600);
+}
+
+.node-type-retail .node-icon {
+  background-color: var(--success-50);
+  color: var(--success-600);
+}
+
+.node-type-customer .node-icon {
+  background-color: var(--neutral-100);
+  color: var(--neutral-600);
+}
+
+.node-content {
+  flex: 1;
+}
+
+.node-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.node-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: 0.75rem;
+}
+
+.node-metric {
+  display: flex;
+  justify-content: space-between;
+}
+
+.metric-label {
+  color: var(--neutral-500);
+  margin-right: var(--space-2);
+}
+
+.metric-value {
+  font-weight: 500;
+}

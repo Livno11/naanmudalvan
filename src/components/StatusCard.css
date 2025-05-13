@@ -1,0 +1,92 @@
+.status-card {
+  display: flex;
+  padding: var(--space-6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.status-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.status-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  margin-right: var(--space-4);
+}
+
+.status-card-content {
+  flex: 1;
+}
+
+.status-card-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--neutral-600);
+  margin-bottom: var(--space-1);
+}
+
+.status-card-value {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.status-card-trend {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.trend-value {
+  font-weight: 600;
+  margin-right: var(--space-1);
+}
+
+.trend-label {
+  color: var(--neutral-500);
+}
+
+.status-card-trend.positive {
+  color: var(--success-500);
+}
+
+.status-card-trend.negative {
+  color: var(--error-500);
+}
+
+/* Card color variants */
+.status-card-primary .status-card-icon {
+  background-color: var(--primary-50);
+  color: var(--primary-500);
+}
+
+.status-card-secondary .status-card-icon {
+  background-color: var(--secondary-50);
+  color: var(--secondary-500);
+}
+
+.status-card-accent .status-card-icon {
+  background-color: var(--accent-50);
+  color: var(--accent-500);
+}
+
+.status-card-success .status-card-icon {
+  background-color: var(--success-50);
+  color: var(--success-500);
+}
+
+.status-card-warning .status-card-icon {
+  background-color: var(--warning-50);
+  color: var(--warning-500);
+}
+
+.status-card-error .status-card-icon {
+  background-color: var(--error-50);
+  color: var(--error-500);
+}
